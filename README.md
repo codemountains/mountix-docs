@@ -4,6 +4,8 @@
 
 ## Build command
 
+ローカル環境でindex.htmlを生成する。
+
 ```shell
 docker run --rm -it -v$(pwd):/tmp my-redoc-cli:0.0.1 bash
 ```
