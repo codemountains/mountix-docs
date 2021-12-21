@@ -32,12 +32,6 @@ jobs:
 
             - run: npm ci
 
-            - name: docker
-              run: docker run --rm -it -v$(pwd):/tmp my-redoc-cli:0.0.1 bash
-
-            - name: cd tmp
-              run: cd tmp/
-
             - name: bundle
               run: npm run bundle
 

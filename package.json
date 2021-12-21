@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/codemountains/mountix-docs/issues"
   },
-  "homepage": "https://github.com/codemountains/mountix-docs#readme"
+  "homepage": "https://github.com/codemountains/mountix-docs#readme",
+  "dependencies": {
+    "redoc-cli": "^0.13.2"
+  }
 }
