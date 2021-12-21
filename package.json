@@ -1,0 +1,22 @@
+{
+  "name": "mountix-docs",
+  "version": "1.0.0",
+  "description": "*mountix API* のドキュメント",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "redoc-cli test openapi.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codemountains/mountix-docs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codemountains/mountix-docs/issues"
+  },
+  "homepage": "https://github.com/codemountains/mountix-docs#readme"
+}
