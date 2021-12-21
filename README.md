@@ -10,5 +10,5 @@ docker run --rm -it -v$(pwd):/tmp my-redoc-cli:0.0.1 bash
 
 ```shell
 cd tmp/
-redoc-cli bundle opneapi.yaml -o index.html
+redoc-cli bundle docs/openapi.yaml -o target/index.html
 ```
