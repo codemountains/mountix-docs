@@ -68,7 +68,7 @@ components:
                 id:
                     description: 山岳ID
                     type: integer
-                    format: int64
+                    format: int32
                     example: 465
                 name:
                     description: 山岳名
