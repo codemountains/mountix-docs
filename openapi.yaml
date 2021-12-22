@@ -14,7 +14,8 @@ paths:
             parameters:
                 -   name: prefecture
                     in: query
-                    description: 都道府県ID - 都道府県による検索が可能
+                    description: |
+                        都道府県ID - 都道府県による検索が可能・都道府県ID一覧は[こちら](./prefectures/)
                     required: false
                     schema:
                         type: integer
