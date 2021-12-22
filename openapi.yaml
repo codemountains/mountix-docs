@@ -93,7 +93,7 @@ components:
                 elevation:
                     description: 標高（m）
                     type: integer
-                    format: int64
+                    format: int32
                     example: 2932
                 location:
                     description: 位置情報
