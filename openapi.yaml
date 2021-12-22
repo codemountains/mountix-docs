@@ -46,7 +46,8 @@ paths:
             tags:
                 - mountains
             summary: Get mountain by ID
-            description: 日本の主な山岳一覧に掲載された山岳情報を取得します
+            description: |
+                [日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html)に掲載されている山岳情報を取得します
             parameters:
                 -   name: mountainId
                     in: path
