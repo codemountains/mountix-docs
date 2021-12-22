@@ -147,7 +147,7 @@ components:
                             tags: []
                 total:
                     type: integer
-                    format: int64
+                    format: int32
                     example: 2
         Location:
             type: object
