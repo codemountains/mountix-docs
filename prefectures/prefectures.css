@@ -1,0 +1,96 @@
+body {
+    font-family: Montserrat,sans-serif;
+    line-height: 1.25;
+}
+.main-container {
+    width: 660px;
+    margin: 0 auto;
+    padding: 0;
+}
+.page-title {
+    margin-top: 44px;
+    font-weight: 120;
+    font-size: 1.5em;
+    line-height: 1.6em;
+    color: #32329f;
+}
+.table-container{
+    margin-bottom: 72px;
+}
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    padding: 0;
+    width: 580px;
+    color: #333333;
+}
+table tr {
+    background-color: #fff;
+    padding: .35em;
+    border-bottom: 1px dotted #1d8127;
+}
+table tr:last-child{
+    border-bottom: 2px solid #1d8127;
+}
+table th,
+table td {
+    padding: 1em 10px 1em 1em;
+}
+tbody th {
+    color: #0f7d13;
+}
+.txt{
+    text-align: left;
+    font-size: .95em;
+}
+@media screen and (max-width: 580px) {
+    table {
+        border: 0;
+        width:100%;
+    }
+    table th{
+        display: block;
+        border-right: none;
+        border-bottom: 2px solid #1d8127;
+        padding-bottom: .6em;
+        margin-bottom: .6em;
+
+    }
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    table tr {
+        display: block;
+        margin-bottom: 2em;
+        border-bottom: 2px solid #1d8127;
+    }
+
+    table td {
+        border-bottom: 1px solid #bbb;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+        position: relative;
+        padding: .625em .625em .625em 4em;
+        border-right: none;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        position: absolute;
+        left: 10px;
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
+}
