@@ -2,6 +2,8 @@
 
 *mountix API* のドキュメント
 
+[https://codemountains.github.io/mountix-docs/](https://codemountains.github.io/mountix-docs/)
+
 ## Build command
 
 ローカル環境でindex.htmlを生成する。
