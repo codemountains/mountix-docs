@@ -2,7 +2,7 @@
 
 *mountix API* のドキュメント
 
-[https://codemountains.github.io/mountix-docs/](https://codemountains.github.io/mountix-docs/)
+[https://mountix-docs.codemountains.org/](https://mountix-docs.codemountains.org/)
 
 ## Build command
 
