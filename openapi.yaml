@@ -9,7 +9,7 @@ paths:
         get:
             tags:
                 - mountains
-            summary: Get all mountains
+            summary: Search mountains
             description: |
                 [日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html)に掲載されている山岳一覧を取得します
             parameters:
@@ -30,6 +30,20 @@ paths:
                 -   name: tag
                     in: query
                     description: タグID - 百名山（= 1）のみ指定でき、百名山に該当する山の検索が可能
+                    required: false
+                    schema:
+                        type: integer
+                        format: int32
+                -   name: offset
+                    in: query
+                    description: オフセット - 指定した数だけ抽出するレコードをスキップすることが可能
+                    required: false
+                    schema:
+                        type: integer
+                        format: int32
+                -   name: limit
+                    in: query
+                    description: リミット - 指定した数のレコード抽出が可能
                     required: false
                     schema:
                         type: integer
