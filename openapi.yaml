@@ -166,6 +166,14 @@ components:
                     type: integer
                     format: int32
                     example: 2
+                offset:
+                    type: integer
+                    format: int32
+                    example: 0
+                limit:
+                    type: integer
+                    format: int32
+                    example: 10
         Location:
             type: object
             properties:
