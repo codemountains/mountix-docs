@@ -162,18 +162,23 @@ components:
                                 longitude: 135.37222222222223
                                 gsiUrl: https://maps.gsi.go.jp/#15/34.01583333333333/135.37222222222223
                             tags: []
+                    description: 山岳一覧
                 total:
                     type: integer
                     format: int32
                     example: 2
+                    description: 山岳一覧の総レコード数
                 offset:
                     type: integer
                     format: int32
                     example: 0
+                    description: オフセット
                 limit:
                     type: integer
                     format: int32
                     example: 10
+                    nullable: true
+                    description: リミット - 未指定の場合、null
         Location:
             type: object
             properties:
