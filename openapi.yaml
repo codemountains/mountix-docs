@@ -9,7 +9,7 @@ paths:
         get:
             tags:
                 - mountains
-            summary: Get all mountains
+            summary: Search mountains
             description: |
                 [日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html)に掲載されている山岳一覧を取得します
             parameters:
