@@ -34,6 +34,20 @@ paths:
                     schema:
                         type: integer
                         format: int32
+                -   name: offset
+                    in: query
+                    description: オフセット - 指定した数だけ抽出するレコードをスキップすることが可能
+                    required: false
+                    schema:
+                        type: integer
+                        format: int32
+                -   name: limit
+                    in: query
+                    description: リミット - 指定した数のレコード抽出が可能
+                    required: false
+                    schema:
+                        type: integer
+                        format: int32
             responses:
                 '200':
                     description: 日本の主な山岳一覧取得結果
