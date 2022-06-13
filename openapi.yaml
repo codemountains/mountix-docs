@@ -23,7 +23,7 @@ paths:
                         format: int32
                 -   name: name
                     in: query
-                    description: 山岳名 - 部分一致検索が可能
+                    description: 山岳名 or 山岳名（かな） - 部分一致検索が可能
                     required: false
                     schema:
                         type: string
