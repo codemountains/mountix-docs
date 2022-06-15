@@ -48,6 +48,14 @@ paths:
                     schema:
                         type: integer
                         format: int32
+                -   name: sort
+                    in: query
+                    description: ソート - ID(id)、標高(elevation)、山岳名(name)の昇順・降順で山岳一覧の並べ替えが可能
+                    required: false
+                    schema:
+                        type: string
+                        format: key.type (id/elevation/name).(asc/desc)
+                        example: elevation.desc
             responses:
                 '200':
                     description: 日本の主な山岳一覧取得結果
