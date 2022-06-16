@@ -29,7 +29,7 @@ paths:
                         type: string
                 -   name: tag
                     in: query
-                    description: タグID - 百名山（= 1）のみ指定でき、百名山に該当する山の検索が可能
+                    description: タグID - 百名山(tage=1)、二百名山(tag=2)が指定でき、それに該当する山の検索が可能
                     required: false
                     schema:
                         type: integer
