@@ -193,12 +193,15 @@ components:
                 latitude:
                     type: number
                     format: float64
+                    description: 緯度（°）
                 longitude:
                     type: number
                     format: float64
+                    description: 経度（°）
                 gsiUrl:
                     type: string
                     format: URL
+                    description: 地理院地図 / GSI Maps URL
 tags:
     -   name: mountains
         description: 日本の主な山岳一覧
