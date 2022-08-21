@@ -41,6 +41,7 @@ paths:
                     schema:
                         type: integer
                         format: int32
+                        default: 0
                 -   name: limit
                     in: query
                     description: リミット - 指定した数のレコード抽出が可能
@@ -54,7 +55,8 @@ paths:
                     required: false
                     schema:
                         type: string
-                        format: key.type (id/elevation/name).(asc/desc)
+                        format: key.orderType
+                        default: id.asc
                         example: elevation.desc
             responses:
                 '200':
@@ -175,7 +177,7 @@ components:
                     type: integer
                     format: int32
                     example: 2
-                    description: 山岳一覧の総レコード数
+                    description: 検索条件に一致する山岳一覧の総レコード数
                 offset:
                     type: integer
                     format: int32
