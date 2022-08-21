@@ -55,7 +55,7 @@ paths:
                     required: false
                     schema:
                         type: string
-                        format: key.orderType
+                        format: key.order
                         default: id.asc
                         example: elevation.desc
             responses:
