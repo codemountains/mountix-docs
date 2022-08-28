@@ -21,12 +21,14 @@ paths:
                     schema:
                         type: integer
                         format: int32
+                        example: 20
                 -   name: name
                     in: query
                     description: 山岳名 or 山岳名（かな） - 部分一致検索が可能
                     required: false
                     schema:
                         type: string
+                        example: 富士山
                 -   name: tag
                     in: query
                     description: タグID - 百名山(tag=1)、二百名山(tag=2)が指定でき、それに該当する山の検索が可能
@@ -34,6 +36,7 @@ paths:
                     schema:
                         type: integer
                         format: int32
+                        example: 1
                 -   name: offset
                     in: query
                     description: オフセット - 指定した数だけ抽出するレコードをスキップすることが可能
@@ -42,6 +45,7 @@ paths:
                         type: integer
                         format: int32
                         default: 0
+                        example: 0
                 -   name: limit
                     in: query
                     description: リミット - 指定した数のレコード抽出が可能
@@ -49,6 +53,7 @@ paths:
                     schema:
                         type: integer
                         format: int32
+                        example: 20
                 -   name: sort
                     in: query
                     description: ソート - ID(id)、標高(elevation)、山岳名(name)の昇順・降順で山岳一覧の並べ替えが可能
@@ -80,6 +85,7 @@ paths:
                     schema:
                         type: integer
                         format: int32
+                        example: 396
             responses:
                 '200':
                     description: 日本の主な山岳の取得結果
@@ -102,6 +108,7 @@ paths:
                     schema:
                         type: integer
                         format: int32
+                        example: 533
                 -   name: distance
                     in: query
                     description: 中心点となる山岳からの最大距離（m）
@@ -110,6 +117,7 @@ paths:
                         type: integer
                         format: int32
                         default: 5000
+                        example: 5000
             responses:
                 '200':
                     description: 周辺の日本の主な山岳一覧取得結果
@@ -139,6 +147,7 @@ paths:
                     required: false
                     schema:
                         type: string
+                        example: 槍ヶ岳
                 -   name: sort
                     in: query
                     description: ソート - ID(id)、標高(elevation)、山岳名(name)の昇順・降順で山岳一覧の並べ替えが可能
@@ -148,7 +157,14 @@ paths:
                         format: key.order
                         default: id.asc
                         example: elevation.desc
-                
+                -   name: tag
+                    in: query
+                    description: タグID - 百名山(tag=1)、二百名山(tag=2)が指定でき、それに該当する山の検索が可能
+                    required: false
+                    schema:
+                        type: integer
+                        format: int32
+                        example: 1
             responses:
                 '200':
                     description: 日本の主な山岳一覧取得結果
