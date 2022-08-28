@@ -1,7 +1,7 @@
 openapi: "3.0.2"
 info:
     title: mountix API
-    version: "1.0.0"
+    version: "1.1.0"
 servers:
     -   url: https://mountix.codemountains.org/api/v1
 paths:
@@ -11,7 +11,7 @@ paths:
                 - mountains
             summary: Search mountains
             description: |
-                [日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html)に掲載されている山岳一覧を取得します
+                [日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html)に掲載されている山岳情報を一覧で取得します
             parameters:
                 -   name: prefecture
                     in: query
@@ -87,6 +87,75 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Mountain'
+    /mountains/{mountainId}/surroundings:
+        get:
+            tags:
+                - mountains
+            summary: Search surrounding mountains
+            description: |
+                周辺に存在する山岳の[日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html)に掲載されている山岳情報を一覧を取得します
+            parameters:
+                -   name: mountainId
+                    in: path
+                    description: 検索の基点となる山岳の山岳ID
+                    required: true
+                    schema:
+                        type: integer
+                        format: int32
+                -   name: distance
+                    in: query
+                    description: 基点となる山岳から距離（m）
+                    required: false
+                    schema:
+                        type: integer
+                        format: int32
+                        default: 5000
+            responses:
+                '200':
+                    description: 周辺の日本の主な山岳一覧取得結果
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SurroundingMountainList'
+    /mountains/geosearch:
+        get:
+            tags:
+                - geosearch mountains
+            summary: Geosearch mountains
+            description: |
+                指定した長方形の地理空間に存在する山岳の[日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html)に掲載されている山岳情報を一覧で取得します
+            parameters:
+                -   name: box
+                    in: query
+                    description: 長方形を示す地理空間 - (左下隅の経度,左下隅の緯度),(右上隅の経度,右上隅の緯度)で指定する
+                    required: true
+                    schema:
+                        type: string
+                        format: (bottom left longitude,bottom left latitude),(upper right longitude,upper right latitude)
+                        example: (137.632582,36.600727),(137.601829,36.631957)
+                -   name: name
+                    in: query
+                    description: 山岳名 or 山岳名（かな） - 部分一致検索が可能
+                    required: false
+                    schema:
+                        type: string
+                -   name: sort
+                    in: query
+                    description: ソート - ID(id)、標高(elevation)、山岳名(name)の昇順・降順で山岳一覧の並べ替えが可能
+                    required: false
+                    schema:
+                        type: string
+                        format: key.order
+                        default: id.asc
+                        example: elevation.desc
+                
+            responses:
+                '200':
+                    description: 日本の主な山岳一覧取得結果
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/BoxMountainList'
 components:
     schemas:
         Mountain:
@@ -204,9 +273,104 @@ components:
                     type: string
                     format: URL
                     description: 地理院地図 / GSI Maps URL
+        SurroundingMountainList:
+            type: object
+            properties:
+                mountains:
+                    type: array
+                    items:
+                        anyOf:
+                            -   $ref: '#/components/schemas/Mountain'
+                    example:
+                        -   id: 466
+                            name: 旭岳
+                            nameKana: あさひだけ
+                            area: 飛騨山脈北部
+                            prefectures:
+                                - 富山県
+                            elevation: 2867
+                            location:
+                                latitude: 36.757777777777775
+                                longitude: 36.757777777777775
+                                gsiUrl: https://maps.gsi.go.jp/#15/36.757777777777775/137.7458333333333
+                            tags: []
+                        -   id: 468
+                            name: 杓子岳
+                            nameKana: しゃくしだけ
+                            area: 飛騨山脈北部
+                            prefectures:
+                                - 富山県
+                                - 長野県
+                            elevation: 2812
+                            location:
+                                latitude: 36.74055555555556
+                                longitude: 137.75916666666666
+                                gsiUrl: https://maps.gsi.go.jp/#15/36.74055555555556/137.75916666666666
+                            tags: []
+                        -   id: 462
+                            name: 小蓮華山
+                            nameKana: これんげさん
+                            area: 飛騨山脈北部
+                            prefectures:
+                                - 新潟県
+                                - 長野県
+                            elevation: 2766
+                            location:
+                                latitude: 36.77361111111111
+                                longitude: 137.77611111111113
+                                gsiUrl: https://maps.gsi.go.jp/#15/36.77361111111111/137.77611111111113
+                            tags: []
+                    description: 周辺の山岳一覧
+                distance:
+                    type: integer
+                    format: int32
+                    example: 2500
+                    description: 基点となる山岳から距離（m）
+        BoxMountainList:
+            type: object
+            properties:
+                mountains:
+                    type: array
+                    items:
+                        anyOf:
+                            -   $ref: '#/components/schemas/Mountain'
+                    example:
+                        -   id: 469
+                            name: 剱岳
+                            nameKana: つるぎだけ
+                            area: 飛騨山脈北部
+                            prefectures:
+                                - 富山県
+                            elevation: 2999
+                            location:
+                                latitude: 36.623333333333335
+                                longitude: 137.61694444444444
+                                gsiUrl: https://maps.gsi.go.jp/#15/36.623333333333335/137.61694444444444
+                            tags:
+                                - 百名山
+                        -   id: 498
+                            name: 剱御前
+                            nameKana: つるぎごぜん
+                            area: 飛騨山脈北部
+                            prefectures:
+                                - 富山県
+                            elevation: 2777
+                            location:
+                                latitude: 36.6025
+                                longitude: 137.60888888888888
+                                gsiUrl: https://maps.gsi.go.jp/#15/36.6025/137.60888888888888
+                            tags: []
+                    description: 地理空間に存在する山岳一覧
+                total:
+                    type: integer
+                    format: int32
+                    example: 2
+                    description: 地理空間に存在し、検索条件に一致する山岳一覧の総レコード数
 tags:
     -   name: mountains
         description: 日本の主な山岳一覧
+    -   name: geosearch mountains
+        description: 指定した長方形の地理空間に存在する日本の主な山岳一覧
 externalDocs:
     description: mountix API について
     url: https://dottrail.codemountains.org/lp/mountix-api/
