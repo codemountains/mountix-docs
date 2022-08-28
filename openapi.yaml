@@ -97,14 +97,14 @@ paths:
             parameters:
                 -   name: mountainId
                     in: path
-                    description: 検索の基点となる山岳の山岳ID
+                    description: 検索する地理空間の中心点となる山岳の山岳ID
                     required: true
                     schema:
                         type: integer
                         format: int32
                 -   name: distance
                     in: query
-                    description: 基点となる山岳から距離（m）
+                    description: 中心点となる山岳からの最大距離（m）
                     required: false
                     schema:
                         type: integer
@@ -325,7 +325,7 @@ components:
                     type: integer
                     format: int32
                     example: 2500
-                    description: 基点となる山岳から距離（m）
+                    description: 中心点となる山岳からの最大距離（m）
         BoxMountainList:
             type: object
             properties:
