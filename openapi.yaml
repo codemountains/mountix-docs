@@ -4,9 +4,11 @@ info:
     version: "1.1.0"
 servers:
     -   url: https://mountix.codemountains.org/api/v1
+security: []
 paths:
     /mountains:
         get:
+            operationId: searchMountains
             tags:
                 - mountains
             summary: Search mountains
@@ -72,6 +74,7 @@ paths:
                                 $ref: '#/components/schemas/MountainList'
     /mountains/{mountainId}:
         get:
+            operationId: getMountainById
             tags:
                 - mountains
             summary: Get mountain by ID
@@ -95,6 +98,7 @@ paths:
                                 $ref: '#/components/schemas/Mountain'
     /mountains/{mountainId}/surroundings:
         get:
+            operationId: searchSurroundingMountains
             tags:
                 - mountains
             summary: Search surrounding mountains
@@ -127,6 +131,7 @@ paths:
                                 $ref: '#/components/schemas/SurroundingMountainList'
     /mountains/geosearch:
         get:
+            operationId: geosearchMountains
             tags:
                 - geosearch mountains
             summary: Geosearch mountains

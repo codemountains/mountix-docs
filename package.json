@@ -7,8 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "redoc-cli test openapi.yaml",
-    "bundle": "redoc-cli bundle openapi.yaml -o docs/index.html"
+    "test": "redocly lint --extends=minimal openapi.yaml",
+    "bundle": "redocly build-docs openapi.yaml -o docs/index.html"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "url": "https://github.com/codemountains/mountix-docs/issues"
   },
   "homepage": "https://github.com/codemountains/mountix-docs#readme",
-  "dependencies": {
-    "redoc-cli": "^0.13.2"
+  "devDependencies": {
+    "@redocly/cli": "^2.0.0"
   }
 }
