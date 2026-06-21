@@ -11,7 +11,7 @@ paths:
                 - mountains
             summary: Search mountains
             description: |
-                [日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html)に掲載されている山岳情報を一覧で取得します
+                [日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41139.html)に掲載されている山岳情報を一覧で取得します
             parameters:
                 -   name: prefecture
                     in: query
@@ -76,7 +76,7 @@ paths:
                 - mountains
             summary: Get mountain by ID
             description: |
-                [日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html)に掲載されている山岳情報を取得します
+                [日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41139.html)に掲載されている山岳情報を取得します
             parameters:
                 -   name: mountainId
                     in: path
@@ -99,7 +99,7 @@ paths:
                 - mountains
             summary: Search surrounding mountains
             description: |
-                周辺に存在する山岳の[日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html)に掲載されている山岳情報を一覧を取得します
+                周辺に存在する山岳の[日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41139.html)に掲載されている山岳情報を一覧を取得します
             parameters:
                 -   name: mountainId
                     in: path
@@ -131,7 +131,7 @@ paths:
                 - geosearch mountains
             summary: Geosearch mountains
             description: |
-                指定した長方形の地理空間に存在する山岳の[日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41140.html)に掲載されている山岳情報を一覧で取得します
+                指定した長方形の地理空間に存在する山岳の[日本の主な山岳一覧](https://www.gsi.go.jp/kihonjohochousa/kihonjohochousa41139.html)に掲載されている山岳情報を一覧で取得します
             parameters:
                 -   name: box
                     in: query
