@@ -3,4 +3,4 @@ FROM node
 RUN apt-get -y update
 
 RUN npm i -g npm
-RUN npm i -g redoc-cli
+RUN npm i -g @redocly/cli

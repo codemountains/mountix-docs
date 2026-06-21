@@ -9,10 +9,10 @@
 ローカル環境でindex.htmlを生成する。
 
 ```shell
-docker run --rm -it -v$(pwd):/tmp my-redoc-cli:0.0.1 bash
+docker run --rm -it -v$(pwd):/tmp my-redocly-cli:0.0.1 bash
 ```
 
 ```shell
 cd tmp/
-redoc-cli bundle openapi.yaml -o target/index.html
+redocly build-docs openapi.yaml -o target/index.html
 ```
