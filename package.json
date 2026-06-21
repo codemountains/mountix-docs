@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/codemountains/mountix-docs#readme",
   "dependencies": {
-    "redoc-cli": "^0.13.2"
+    "redoc-cli": "^0.13.21"
   }
 }
